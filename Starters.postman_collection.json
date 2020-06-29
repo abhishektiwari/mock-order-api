@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "e79f6159-d20d-4c95-8db7-54c47e58e6b2",
+		"name": "Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get - Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4efb1118-f64c-43e5-9d36-e92058a80d69",
+						"exec": [
+							"var jsonData;",
+							"var customerNo = pm.variables.get('customerNo');",
+							"if (pm.response.code===200) {",
+							"    jsonData = JSON.parse(responseBody);",
+							"}",
+							"",
+							"pm.test(\"API Response OK\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"});",
+							"",
+							"pm.test(\"Order Status OK\", function () {",
+							"    pm.expect(jsonData.orderStatus).to.be.oneOf(['shipped', 'delivered', 'processing']);",
+							"});",
+							"",
+							"pm.test(\"Customer No OK\", function () {",
+							"    pm.expect(jsonData.customerNo).to.eql(customerNo);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{basic_auth_password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{basic_auth_username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_endpoint}}/order?customerNo={{customerNo}}",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"order"
+					],
+					"query": [
+						{
+							"key": "customerNo",
+							"value": "{{customerNo}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

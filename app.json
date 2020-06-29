@@ -1,0 +1,19 @@
+{
+    "name": "Mock order API",
+    "description": "Mock Order API",
+    "website": "https://www.abhishek-tiwari.com",
+    "success_url": "/",
+    "env": {
+        "BASIC_AUTH_USERNAME": {
+            "description": "Basic authentication username",
+            "value": "",
+            "required": true
+        },
+        "BASIC_AUTH_PASSWORD": {
+            "description": "Basic authentication password",
+            "value": "",
+            "required": true
+        }
+    },
+    "repository": "https://github.com/abhishektiwari/mock-order-api.git"
+}
