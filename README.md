@@ -65,3 +65,9 @@ One-click deploy to Heroku. You will need a Heroku account which you can create 
 <a href="https://heroku.com/deploy?template=https://github.com/abhishektiwari/mock-order-api.git">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy" width="200px">
 </a>
+
+## Demo Details
+
+Demo API Endpoint: https://mock-order-api.herokuapp.com
+Username: `keanu`
+Password: `matrix`
