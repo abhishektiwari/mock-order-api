@@ -21,12 +21,13 @@ def api_private():
     Private API - authentication required
     """
     customer_no = request.args.get("customerNo", None)
+    date_time = datetime.now() - timedelta(days=N_DAYS)
     if customer_no:
         return jsonify(
             {
                 "customerNo": customer_no,
                 "orderNumber": "OR-{}".format(customer_no),
-                "orderDate": datetime.now() - timedelta(days=N_DAYS),
+                "orderDate": date_time.isoformat(),
                 "orderStatus": random.choice(STATUSES),
             }
         )

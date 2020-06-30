@@ -53,7 +53,11 @@ You will need [Postman](https://www.postman.com/downloads/) app installed locall
 ![Set Postman environment variables](env-vars.png)
 
 ### Run API Tests
+Click send and review response `Body`.
 ![Run API Tests](api-tests.png)
+
+Or `Test Results`
+![Run API Tests](api-tests.jpg)
 
 ## Deploy to Heroku
 One-click deploy to Heroku. You will need a Heroku account which you can create for free.
